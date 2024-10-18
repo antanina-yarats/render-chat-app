@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/papercss@1.8.1/dist/paper.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <style>
+      body {
+        background-color: #f4f1e5; 
+        color: black; 
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px; 
+      }
+
+      form {
+        margin: auto;
+        max-width: 400px; 
+        padding: 20px; 
+        text-align: left; 
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 15px;
+        padding: 10px 0;
+      }
+
+      input[type="text"], textarea {
+        border: 2px solid #999;
+        padding: 10px; 
+        width: 100%; 
+        box-sizing: border-box; 
+      }
+
+      textarea {
+        height: 100px; 
+        resize: none; 
+      }
+
+      input[type="submit"] {
+        margin-top: 20px; 
+        display: block;
+        width: 100%; 
+        border: 2px solid black;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      
+      input[type="submit"]:hover {
+        background-color: #333;
+        color: white; 
+      }
+
+      
+      input[type="submit"]:active {
+        background-color: #222; 
+        color: white; 
+      }
+
+      h2 {
+        font-size: 18px; 
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style-type: none; 
+        padding-left: 0;
+      }
+
+      ul li {
+        margin-bottom: 5px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container paper">
+      <h1>Chat</h1>
+
+      <form method="POST" action="/">
+        <label>Sender
+          <input type="text" name="sender">
+        </label>
+
+        <label>Message
+          <textarea name="message"></textarea> <!-- Replaced input with textarea -->
+        </label>
+
+        <input type="submit" value="Submit" class="btn-primary">
+      </form>
+
+      <h2>Five most recent messages</h2>
+      <ul>
+        <% it.messages.forEach((mes) => { %>
+          <li>
+            <%=mes.sender%>: <%=mes.message%>
+          </li>
+        <% }); %>
+      </ul>
+    </div>  
+  </body>
+</html>
