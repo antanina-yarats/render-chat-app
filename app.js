@@ -51,6 +51,17 @@ const handleRequest = async(request) => {
 };
 
 
-console.log("Server running on http://localhost:7777/");
-Deno.serve({ port: 7777}, handleRequest);
+const port = Deno.env.get("PORT") || 7777;
+const address = Deno.env.get("PORT") || 7777; 
+
+const database = Deno.env.get("DATABASE_URL");
+
+console.log({database, address, port});
+
+console.log(`Server running on http://${address}:${port}/`);
+
+
+
+Deno.serve({ hostname: address, port: Number(port) }, handleRequest);
+
 

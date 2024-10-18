@@ -9,7 +9,7 @@ services:
       - ./:/app
       - ./app-cache/:/app-cache
     ports:
-      - 7777:7777
+      - 7777:10000
     depends_on:
       - database
       - flyway
