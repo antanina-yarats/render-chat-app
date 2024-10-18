@@ -52,7 +52,7 @@ const handleRequest = async(request) => {
 
 
 const port = Deno.env.get("PORT") || 7777;
-const address = Deno.env.get("PORT") || 7777; 
+const address = "0.0.0.0"; 
 
 const database = Deno.env.get("DATABASE_URL");
 
